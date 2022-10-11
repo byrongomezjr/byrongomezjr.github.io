@@ -6,15 +6,21 @@ type Props = {}
 
 function Hero({}: Props) {
     const [text, count] = useTypewriter({
-        words: ["Hello, my name is Byron Gomez Jr.","I am a Software Developer focused on implementing clean design and building responsive applications."],
+        words: ["Hello, my name is Byron Gomez Jr.","My main focus is implementing clean design,", "...and building responsive applications."],
         loop: true,
         delaySpeed: 2000,
     })
   return (
     <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
         <BackgroundCircles />
-        <h1>
-        <span>{text}</span>
+        <picture>
+          <img className="relative object-cover w-32 h-32 mx-auto rounded-full" src="https://avatars.githubusercontent.com/u/60487113?v=4" alt="profile picture"/>
+        </picture>
+        <h2 className="text-sm text-gray-500 uppercase pb-2 tracking-[10px]">
+          Software Engineer
+        </h2>
+        <h1 className="px-10 text-5xl font-semibold lg:text-6xl">
+        <span className="mr-3">{text}</span>
         <Cursor cursorColor="lightgreen"/>
         </h1>
     </div>
