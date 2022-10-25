@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -28,7 +29,7 @@ function Projects({}: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 src='https://media.istockphoto.com/id/1239504264/video/sign-under-construction.jpg?s=640x640&k=20&c=5MENTQPYV7RnBbTurz3rF20oJLbDgGPHh-IjAWvAS7k='
-                alt='dummy image'
+                alt='under-construction'
               />
 
               <div className='max-w-6xl px-0 space-y-10 md:px-10'>
