@@ -24,9 +24,9 @@ function Projects({}: Props) {
             {/* JSX Wrapping element */}
             <picture className='flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44'>
               <motion.img
-                initial={{ y: -300, opacity: 0 }}
+                initial={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 src='https://media.istockphoto.com/id/1239504264/video/sign-under-construction.jpg?s=640x640&k=20&c=5MENTQPYV7RnBbTurz3rF20oJLbDgGPHh-IjAWvAS7k='
                 alt='under-construction'
