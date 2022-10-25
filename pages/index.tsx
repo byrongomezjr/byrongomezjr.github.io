@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import About from '../components/About'
+import Skills from '../components/Skills'
 
 const Home: NextPage = () => {
   return (
@@ -14,18 +15,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* header */}
+
       <Header />
-      {/* hero banner */}
+
       <section id="hero" className="snap-start">
         <Hero />
       </section>
-      {/* about */}
+
       <section id="about" className="snap-center">
         <About />
       </section>
-      {/* experience */}
-      {/* skills */}
+      
+      <section id="skills" className='snap-start'>
+        <Skills />
+      </section>
       {/* projects */}
       {/* contact me */}
 

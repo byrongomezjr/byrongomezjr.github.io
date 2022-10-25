@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 type Props = {}
 
@@ -17,7 +18,7 @@ export default function About({}: Props) {
     }}
     className="relative flex flex-col items-center h-screen px-8 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly">
         
-        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl">About</h3>
+        <h3 className="absolute top-20 uppercase tracking-[20px] text-gray-500 text-1xl">About</h3>
 
         <motion.img 
         initial={{
@@ -40,7 +41,7 @@ export default function About({}: Props) {
 
         <div className="px-0 space-y-8 md:px-8">
             <h4 className="text-2xl font-semibold"> 
-                <span className="underline decoration-[#84FF57]/50">About Me:
+                <span className="underline decoration-[#84FF57]/50">About Me
                 </span>&nbsp;
             </h4>
             <p className="text-md">
