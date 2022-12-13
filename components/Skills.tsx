@@ -16,10 +16,6 @@ function Skills({}: Props) {
         Skills
       </h3>
 
-      <h3 className='absolute top-36 uppercase tracking-[3px] text-white text-sm'>
-        Proficiency
-      </h3>
-
       <div className='grid grid-cols-3 gap-4'>
         <Skill />
         <Skill />
