@@ -12,7 +12,7 @@ function ContactMe({}: Props) {
 
       <div className='flex flex-col space-y-10'>
         <h4 className='text-3xl font-semibold text-center'>
-          Just what you need.{' '}
+          {' '}
           <span className='decoration-[#84FF57]/50 underline'>
             Let&apos;s Connect.
           </span>
@@ -34,14 +34,16 @@ function ContactMe({}: Props) {
 
         <form className='flex flex-col mx-auto space-y-2 w-fit'>
           <div className='flex space-x-2'>
-            <input type='text' />
-            <input type='text' />
+            <input placeholder='Name' className='contactInput' type='text' />
+            <input placeholder='E-Mail' className='contactInput' type='text' />
           </div>
 
-          <input type='text' />
+          <input placeholder='Subject' className='contactInput' type='text' />
 
-          <textarea></textarea>
-          <button>Submit</button>
+          <textarea placeholder='Message' className='contactInput'></textarea>
+          <button className='bg-[#84FF57]/60 py-5 px-10 rounded-md text-[#242424] font-bold text-lg'>
+            Submit
+          </button>
         </form>
       </div>
     </div>
