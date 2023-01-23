@@ -30,7 +30,6 @@ function ContactMe({}: Props) {
             Let&apos;s Connect.
           </span>
         </h4>
-
         <div className='space-y-8'>
           <div className='flex items-center justify-center space-x-3'>
             <PhoneIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
@@ -44,7 +43,6 @@ function ContactMe({}: Props) {
             </div>
           </div>
         </div>
-
         <form
           onSubmit={handleSubmit(onSubmit)}
           className='relative z-20 flex flex-col mx-auto space-y-2 w-80'
