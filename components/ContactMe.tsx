@@ -31,14 +31,14 @@ function ContactMe({}: Props) {
           </span>
         </h4>
 
-        <div className='space-y-10'>
-          <div className='flex items-center justify-center space-x-5'>
+        <div className='space-y-8'>
+          <div className='flex items-center justify-center space-x-3'>
             <PhoneIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
             <p className='text-1xl'>+1 862-304-0265</p>
           </div>
 
           <div>
-            <div className='flex items-center justify-center space-x-5'>
+            <div className='flex items-center justify-center space-x-3'>
               <EnvelopeIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
               <p className='text-1xl'>byrongomezjr@protonmail.com</p>
             </div>
@@ -47,7 +47,7 @@ function ContactMe({}: Props) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='relative z-20 flex flex-col mx-auto space-y-2'
+          className='relative z-20 flex flex-col mx-auto space-y-2 w-80'
         >
           <div className='flex flex-col space-y-2'>
             <input
