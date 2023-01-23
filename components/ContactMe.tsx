@@ -23,7 +23,7 @@ function ContactMe({}: Props) {
         Contact
       </h3>
 
-      <div className='flex flex-col space-y-10'>
+      <div className='relative z-20 flex flex-col space-y-10 overflow-x-scroll overflow-y-hidden w-fit snap-x snap-mandatory'>
         <h4 className='text-3xl font-semibold text-center'>
           {' '}
           <span className='decoration-[#84FF57]/50 underline'>
@@ -34,22 +34,22 @@ function ContactMe({}: Props) {
         <div className='space-y-10'>
           <div className='flex items-center justify-center space-x-5'>
             <PhoneIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>+1 862-304-0265</p>
+            <p className='text-1xl'>+1 862-304-0265</p>
           </div>
 
           <div>
             <div className='flex items-center justify-center space-x-5'>
               <EnvelopeIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
-              <p className='text-2xl'>byrongomezjr@protonmail.com</p>
+              <p className='text-1xl'>byrongomezjr@protonmail.com</p>
             </div>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='flex flex-col mx-auto space-y-2 w-fit'
+          className='relative z-20 flex flex-col mx-auto space-y-2'
         >
-          <div className='flex space-x-2'>
+          <div className='flex flex-col space-y-2'>
             <input
               {...register('name')}
               placeholder='Name'
