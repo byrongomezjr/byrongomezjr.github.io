@@ -19,7 +19,7 @@ function ContactMe({}: Props) {
 
   return (
     <div className='relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl'>
+      <h3 className='absolute top-20 uppercase tracking-[20px] text-gray-500 text-1xl'>
         Contact
       </h3>
 
@@ -30,8 +30,8 @@ function ContactMe({}: Props) {
             Let&apos;s Connect.
           </span>
         </h4>
-        <div className='space-y-8'>
-          <div className='flex items-center justify-center space-x-3'>
+        <div className='space-y-6'>
+          <div className='flex items-center justify-center space-x-2'>
             <PhoneIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
             <p className='text-1xl'>+1 862-304-0265</p>
           </div>

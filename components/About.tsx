@@ -46,12 +46,12 @@ export default function About({}: Props) {
           &nbsp;
         </h4>
         <p className='text-md'>
-          I am a Computer Science student at Rutgers, The State University of
-          New Jersey; and form part of the school&apos;s Computer Science club -
-          currently on my second year. I love implementing responsiveness and
-          clean design to personal projects such as mobile and web apps that
-          live on the internet; My interests range from Software Engineering to
-          Machine Learning.
+          I am a Computer Science & Economics student at Rutgers, The State
+          University of New Jersey - Newark; and form part of the Computer
+          Science Club - currently on my second year. I love implementing
+          responsiveness and clean design to personal projects such as mobile
+          and web apps that live on the internet; My interests range from
+          Software Engineering to Machine Learning.
         </p>
       </div>
     </motion.div>
