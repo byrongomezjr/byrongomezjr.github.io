@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,17 +21,17 @@ function Projects({}: Props) {
       </h3>
 
       <div className='relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20'>
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <>
             {' '}
             {/* JSX Wrapping element */}
-            <picture className='flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44'>
+            <picture className='flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-34'>
               <motion.img
                 initial={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                src='https://media.istockphoto.com/id/1239504264/video/sign-under-construction.jpg?s=640x640&k=20&c=5MENTQPYV7RnBbTurz3rF20oJLbDgGPHh-IjAWvAS7k='
+                src={urlFor(project?.image).url()}
                 alt='under-construction'
               />
 
@@ -38,13 +41,11 @@ function Projects({}: Props) {
                     Case Study {i + 1} of {projects.length}:
                   </span>{' '}
                   {/* { ' '} is used for spacing */}
-                  Circles App Written in Swift
+                  {project?.title}
                 </h4>
 
                 <p className='text-lg text-center md:text-left'>
-                  Modern chat application written in Swift for iOS, built using
-                  CometChatPro's Chat SDK loaded with advanced in-app messaging
-                  features for smooth user experience.
+                  {project?.summary}
                 </p>
               </div>
             </picture>

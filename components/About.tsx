@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{
@@ -36,7 +40,7 @@ export default function About({}: Props) {
         transition={{
           duration: 1.2,
         }}
-        src='https://camo.githubusercontent.com/e11a32381972fad0b47e97dd9e498d3d6f136dd1f31148ba600537fdf0262370/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f2d375776624c6462314974435065454a427641557a3072577432556e6c674c4a44766d69764b64472d7356524a6563456f374e7552376770554c64614e765a574a624361517777544e745733484c4e7554322d79323733416d544f6374427a394965744f3d77363030'
+        src={urlFor(pageInfo?.profilePic).url()}
         className='flex-shrink-0 object-cover w-56 h-56 -mb-20 rounded-full md:mb-0 md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]'
       />
 
@@ -45,14 +49,7 @@ export default function About({}: Props) {
           <span className='underline decoration-[#84FF57]/50'>About Me</span>
           &nbsp;
         </h4>
-        <p className='text-md'>
-          I am a Computer Science & Economics student at Rutgers, The State
-          University of New Jersey - Newark; and form part of the Computer
-          Science Club - currently on my second year. I love implementing
-          responsiveness and clean design to personal projects such as mobile
-          and web apps that live on the internet; My interests range from
-          Software Engineering to Machine Learning.
-        </p>
+        <p className='text-md'>{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );
