@@ -1,8 +1,10 @@
-import {defineCliConfig} from 'sanity/cli'
+import {defineConfig} from 'sanity'
+import { schemaTypes } from './schemas'
 
-export default defineCliConfig({
-  api: {
+export default defineConfig({
     projectId: 'sogm1voo',
-    dataset: 'production'
-  }
+    dataset: 'production',
+    schema: {
+      types: schemaTypes,
+    },
 })

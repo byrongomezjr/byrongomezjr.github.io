@@ -11,7 +11,7 @@ import { PageInfo, Skill, Project, Social } from '../typings';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
-import { fetchSocial } from '../utils/fetchSocials';
+import { fetchSocials } from '../utils/fetchSocials';
 
 type Props = {
   pageInfo: PageInfo;
@@ -48,7 +48,7 @@ const Home = ({ pageInfo, projects, skills, socials }: Props) => {
       </section>
 
       <section id='contact' className='snap-start'>
-        <ContactMe />
+        <ContactMe pageInfo={pageInfo} />
       </section>
     </div>
   );
@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocial();
+  const socials: Social[] = await fetchSocials();
 
   return {
     props: {

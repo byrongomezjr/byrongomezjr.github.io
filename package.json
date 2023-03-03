@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "@material-ui/core": "^4.12.4",
     "@portabletext/react": "^2.0.2",
     "@sanity/cli": "^3.2.6",
+    "@sanity/client": "^5.2.2",
     "@sanity/image-url": "^1.0.2",
+    "@sentry/nextjs": "^7.40.0",
     "framer-motion": "^7.10.3",
     "i": "^0.3.7",
     "next": "^13.2.3",
