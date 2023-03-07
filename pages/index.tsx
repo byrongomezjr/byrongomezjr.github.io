@@ -24,7 +24,7 @@ const Home = ({ pageInfo, projects, skills, socials }: Props) => {
   return (
     <div className='bg-[#333333] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20'>
       <Head>
-        <title>Byron's Portfolio</title>
+        <title>Byron Gomez</title>
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

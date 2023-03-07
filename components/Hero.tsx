@@ -48,9 +48,6 @@ function Hero({ pageInfo }: Props) {
           <Link href='#projects'>
             <button className='heroButton'>Projects</button>
           </Link>
-          <Link href='#contactMe'>
-            <button className='heroButton'>Contact</button>
-          </Link>
         </div>
       </div>
     </div>

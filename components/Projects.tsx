@@ -20,12 +20,12 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className='relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20'>
+      <div className='relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 space-y-4'>
         {projects?.map((project, i) => (
           <>
             {' '}
             {/* JSX Wrapping element */}
-            <picture className='flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-34'>
+            <picture className='flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen space-y-4 p-18 snap-center md:p-34'>
               <motion.img
                 initial={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { PageInfo } from '../typings';
 
@@ -22,26 +22,20 @@ function ContactMe({ pageInfo }: Props) {
 
   return (
     <div className='relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly'>
-      <h3 className='absolute top-20 uppercase tracking-[20px] text-gray-500 text-1xl'>
+      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl'>
         Contact
       </h3>
 
       <div className='relative z-20 flex flex-col space-y-10 overflow-x-scroll overflow-y-hidden w-fit snap-x snap-mandatory'>
-        <h4 className='text-3xl font-semibold text-center'>
-          {' '}
-          <span className='decoration-[#84FF57]/50 underline'>
-            Let&apos;s Connect.
-          </span>
-        </h4>
-        <div className='space-y-6'>
+        <div className='space-y-4'>
           <div className='flex items-center justify-center space-x-2'>
-            <PhoneIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
-            <p className='text-1xl'>862-304-0265</p>
+            <MapPinIcon className='text-[#84FF57] h-8 w-8 animate-pulse' />
+            <p className='text-1xl'>Teaneck, New Jersey, US</p>
           </div>
 
           <div>
-            <div className='flex items-center justify-center space-x-3'>
-              <EnvelopeIcon className='text-[#84FF57] h-7 w-7 animate-pulse' />
+            <div className='flex items-center justify-center space-x-2'>
+              <EnvelopeIcon className='text-[#84FF57] h-8 w-8 animate-pulse' />
               <p className='text-1xl'>byrongomezjr@protonmail.com</p>
             </div>
           </div>
@@ -79,7 +73,7 @@ function ContactMe({ pageInfo }: Props) {
           ></textarea>
           <button
             type='submit'
-            className='bg-[#84FF57]/60 py-5 px-10 rounded-md text-[#242424] font-bold text-lg'
+            className='bg-[#84FF57]/60 py-5 px-10 rounded-md text-[#000000] font-bold text-lg'
           >
             Submit
           </button>
