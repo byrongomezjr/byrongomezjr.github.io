@@ -37,16 +37,21 @@ function Hero({ pageInfo }: Props) {
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='lightgreen' />
         </h1>
+        <div className='flex'>
+
+      <p className='flex justify-center max-w-6xl pt-10 text-sm font-light text-center'>{pageInfo?.backgroundInformation}</p>
+    </div>
+
 
         <div className='pt-10'>
-          <Link href='#about'>
-            <button className='heroButton'>About</button>
-          </Link>
-          <Link href='#skills'>
+          <Link href="#skills">
             <button className='heroButton'>Skills</button>
           </Link>
-          <Link href='#projects'>
+          <Link href="#projects">
             <button className='heroButton'>Projects</button>
+          </Link>
+          <Link href='#projects'>
+            <button className='heroButton'>Resume</button>
           </Link>
         </div>
       </div>

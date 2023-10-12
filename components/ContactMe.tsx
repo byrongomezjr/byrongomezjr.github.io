@@ -29,13 +29,13 @@ function ContactMe({ pageInfo }: Props) {
       <div className='relative z-20 flex flex-col space-y-10 overflow-x-scroll overflow-y-hidden w-fit snap-x snap-mandatory'>
         <div className='space-y-4'>
           <div className='flex items-center justify-center space-x-2'>
-            <MapPinIcon className='text-[#84FF57] h-8 w-8 animate-pulse' />
+            <MapPinIcon className='text-[#84FF57]/40 h-8 w-8 animate-pulse' />
             <p className='text-1xl'>Teaneck, New Jersey, US</p>
           </div>
 
           <div>
             <div className='flex items-center justify-center space-x-2'>
-              <EnvelopeIcon className='text-[#84FF57] h-8 w-8 animate-pulse' />
+              <EnvelopeIcon className='text-[#84FF57]/40 h-8 w-8 animate-pulse' />
               <p className='text-1xl'>byrongomezjr@protonmail.com</p>
             </div>
           </div>
@@ -73,7 +73,7 @@ function ContactMe({ pageInfo }: Props) {
           ></textarea>
           <button
             type='submit'
-            className='bg-[#84FF57]/60 py-5 px-10 rounded-md text-[#000000] font-bold text-lg'
+            className='bg-[#84FF57]/20 py-5 px-10 rounded-md text-[#2b2b2b] font-bold text-lg'
           >
             Submit
           </button>
