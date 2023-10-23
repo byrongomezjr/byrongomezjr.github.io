@@ -48,13 +48,13 @@ function ContactMe({ pageInfo }: Props) {
             <input
               {...register('name')}
               placeholder='Name'
-              className='contactInput'
+              className='rounded-lg contactInput'
               type='text'
             />
             <input
               {...register('email')}
               placeholder='E-Mail'
-              className='contactInput'
+              className='rounded-lg contactInput'
               type='email'
             />
           </div>
@@ -62,18 +62,18 @@ function ContactMe({ pageInfo }: Props) {
           <input
             {...register('subject')}
             placeholder='Subject'
-            className='contactInput'
+            className='rounded-lg contactInput'
             type='text'
           />
 
           <textarea
             {...register('message')}
             placeholder='Shoot me a message!'
-            className='contactInput'
+            className='rounded-lg contactInput'
           ></textarea>
           <button
             type='submit'
-            className='bg-[#84FF57]/20 py-5 px-10 rounded-md text-[#2b2b2b] font-bold text-lg'
+            className='bg-[#84FF57]/20 py-3 px-6 rounded-full text-[#2b2b2b] font-bold text-md'
           >
             Submit
           </button>

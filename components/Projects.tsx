@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Project } from '../typings';
 import { urlFor } from '../sanity';
 import Link from 'next/link';
+import { url } from 'inspector';
 
 type Props = {
   projects: Project[];
@@ -17,11 +18,11 @@ function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className='relative z-0 flex flex-col items-center h-screen max-w-full mx-auto text-left overflown-hidden md:flex-row justify-evenly'
     >
-            <h3 className='absolute top-20 uppercase tracking-[20px] text-gray-500 text-1xl'>
-              Projects
+            <h3 className='absolute top-10 uppercase tracking-[20px] text-gray-500 text-1xl items-center justify-center'>
+            Projects
             </h3>
 
-      <div className='relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 space-y-2'>
+      <div className='relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 space-y-2 items-center'>
 
         {projects?.map((project, i) => (
           <>
@@ -51,9 +52,6 @@ function Projects({ projects }: Props) {
                   {project?.summary}
                 </p>
 
-                <Link href='https://github.com/byrongomezjr/ChatAI' className='m-10 text-sm font-light text-center underline text-lime-700 md:text-left'>
-                  {project?.linkToBuild}
-                </Link>
               </div>
             </picture>
           </>
