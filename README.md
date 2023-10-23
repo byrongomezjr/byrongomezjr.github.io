@@ -6,4 +6,6 @@ Portfolio made using Next.js, Tailwind-CSS, and deployed using GitHub Pages to s
 
 ![portfoliogif](public/portfoliogif.gif)
 
+Deployed website -->> https://www.byrongomezjr.com 😎
+
 <div>
