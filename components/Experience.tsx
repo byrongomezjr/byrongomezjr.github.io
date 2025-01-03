@@ -1,14 +1,17 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import type { Experience } from '../typings';
 
 type Props = {
   experiences: Experience[];
 };
 
+// Add type definition for motion.div
+const MotionDiv = motion.div as React.FC<HTMLMotionProps<"div">>;
+
 function Experience({ experiences }: Props) {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -52,7 +55,7 @@ function Experience({ experiences }: Props) {
           </div>
         ))}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
 

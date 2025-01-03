@@ -33,24 +33,30 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      {/* Header */}
       <Header socials={socials} />
 
+      {/* Hero */}
       <section id='hero' className='snap-start'>
         <Hero pageInfo={pageInfo} />
       </section>
 
+      {/* Experience */}
       <section id='experience' className='snap-start'>
         <Experience experiences={experiences} />
       </section>
 
+      {/* Projects */}
       <section id='projects' className='snap-start'>
         <Projects projects={projects} />
       </section>
 
+      {/* Skills */}
       <section id='skills' className='snap-start'>
         <Skills skills={skills} />
       </section>
 
+      {/* Footer */}
       <section id='footer' className='snap-start'>
         <Footer />
       </section>

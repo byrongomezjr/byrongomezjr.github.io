@@ -8,7 +8,7 @@ type Props = {
   socials: Social[];
 };
 
-export default function Header({ socials }: Props) {
+const Header = ({ socials }: Props) => {
   return (
     <header className='sticky top-0 z-20 flex items-start justify-between p-3 mx-auto max-w-7xl xl:items-center'>
       {' '}
@@ -69,5 +69,7 @@ export default function Header({ socials }: Props) {
         </motion.div>
       </Link>
     </header>
-  );
-}
+  ) as React.ReactElement;
+};
+
+export default Header as unknown as (props: Props) => React.ReactElement;

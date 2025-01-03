@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { SocialIcon } from 'react-social-icons';
+import { SocialIcon as SocialIconType } from 'react-social-icons';
+
+const SocialIcon = SocialIconType as React.FC<React.ComponentProps<typeof SocialIconType>>;
 
 function Footer() {
   return (
