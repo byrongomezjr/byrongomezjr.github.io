@@ -14,7 +14,7 @@ function Hero({ pageInfo }: Props) {
     words: [
       `Hello, my name is ${pageInfo?.name}`,
       'My main focus is implementing clean design,',
-      '...and building responsive applications.',
+      '...and building responsive applications that live on the internet.',
     ],
     loop: true,
     delaySpeed: 2000,
@@ -49,9 +49,6 @@ function Hero({ pageInfo }: Props) {
           </Link>
           <Link href="#projects">
             <button className='heroButton'>Projects</button>
-          </Link>
-          <Link href='#projects'>
-            <button className='heroButton'>Resume</button>
           </Link>
         </div>
       </div>

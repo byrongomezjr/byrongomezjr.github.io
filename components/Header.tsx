@@ -55,6 +55,7 @@ export default function Header({ socials }: Props) {
             duration: 1,
           }}
           className='flex flex-row items-center cursor-pointer text-gray'
+          onClick={() => window.location.href = 'mailto:byrongomezjr@protonmail.com'}
         >
           <SocialIcon
             className='cursor-pointer'

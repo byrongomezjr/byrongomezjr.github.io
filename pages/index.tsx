@@ -6,7 +6,7 @@ import Hero from '../components/Hero';
 //import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
-import ContactMe from '../components/ContactMe';
+import Footer from '../components/Footer';
 import { PageInfo, Skill, Project, Social } from '../typings';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchSkills } from '../utils/fetchSkills';
@@ -43,8 +43,8 @@ const Home = ({ pageInfo, projects, skills, socials }: Props) => {
         <Projects projects={projects} />
       </section>
 
-      <section id='contact' className='snap-start'>
-        <ContactMe pageInfo={pageInfo} />
+      <section id='footer' className='snap-start'>
+        <Footer />
       </section>
     </div>
   );

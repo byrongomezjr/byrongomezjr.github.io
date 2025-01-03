@@ -1,30 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Skill } from '../typings';
+import type { Skill as SkillType } from '../typings';
 import { urlFor } from '../sanity';
+//import { reverse } from 'dns';
 
 type Props = {
-  skill: Skill;
+  skill: SkillType;
   directionLeft?: boolean;
 };
 
 function Skill({ skill, directionLeft }: Props) {
+  const randomX = [0, 
+    Math.random() * 30 - 15, 
+    Math.random() * 40 - 20, 
+    Math.random() * 30 - 15,
+    Math.random() * 40 - 20, 
+    0
+  ];
+  
+  const randomY = [0,
+    Math.random() * 30 - 15,
+    Math.random() * 40 - 20,
+    Math.random() * 30 - 15,
+    Math.random() * 40 - 20,
+    0
+  ];
+
   return (
     <div className='relative flex cursor-pointer group'>
       <motion.img
-        initial={{
-          x: directionLeft ? -50 : 50,
-          opacity: 0,
+        initial={{ opacity: 1 }}
+        animate={{
+          x: randomX,
+          y: randomY,
         }}
-        transition={{ duration: 1 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          repeat: Infinity,
+          duration: 20,
+          ease: "easeInOut",
+          times: [0, 0.2, 0.5, 0.8, 1]
+        }}
+        style={{ opacity: 1 }}
         src={urlFor(skill?.image).url()}
-        className='object-cover w-20 h-20 transition duration-300 ease-in-out border border-gray-700 rounded-full xl:w-30 xl:h-30 md:w-28 md:h-28 filter group-hover:grayscale'
+        className='object-cover w-20 h-20 border border-gray-700 rounded-full xl:w-30 xl:h-30 md:w-28 md:h-28 filter group-hover:grayscale'
       />
       <div className='absolute z-0 w-20 h-20 transition duration-300 ease-in-out rounded-full opacity-0 group-hover:opacity-75 group-hover:bg-gray-700 md:w-28 md:h-28 xl:w-32 xl:h-32'>
         <div className='flex items-center justify-center h-full'>
-          <p className='text-3xl font-bold text-[#84FF57] opacity-100'>
-            {skill.progress}%
+          <p className='text-2xl font-bold text-white opacity-100'>
+            {skill.title}
           </p>
         </div>
       </div>
