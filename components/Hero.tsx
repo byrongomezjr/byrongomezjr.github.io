@@ -4,12 +4,16 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import { urlFor } from '../sanity';
 import { PageInfo } from '../typings';
 import BackgroundCircles from './BackgroundCircles';
+import { PortableText } from "@portabletext/react";
 
 type Props = {
   pageInfo: PageInfo;
 };
 
 function Hero({ pageInfo }: Props) {
+  console.log("PageInfo received:", pageInfo);
+  console.log("Background Info:", pageInfo?.backgroundInformation);
+
   const [text, count] = useTypewriter({
     words: [
       `Hello, my name is ${pageInfo?.name}`,
@@ -20,7 +24,7 @@ function Hero({ pageInfo }: Props) {
     delaySpeed: 2000,
   });
   return (
-    <div className='flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center'>
+    <div className='flex flex-col items-center justify-center h-screen space-y-4 overflow-hidden text-center'>
       <BackgroundCircles pageInfo={pageInfo} />
       <picture>
         <img
@@ -30,25 +34,28 @@ function Hero({ pageInfo }: Props) {
         />
       </picture>
       <div className='z-20'>
-        <h2 className='text-sm text-gray-500 uppercase pb-2 tracking-[10px]'>
+        <h2 className='text-sm text-gray-500 uppercase pb-2 tracking-[12px]'>
           {pageInfo?.role}
         </h2>
         <h1 className='px-8 font-semibold text-1xl lg:text-2xl'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='lightgreen' />
         </h1>
-        <div className='flex'>
-
-      <p className='flex justify-center max-w-6xl pt-10 text-sm font-light text-center'>{pageInfo?.backgroundInformation}</p>
-    </div>
-
+        <div className="flex flex-col items-center mt-6">
+          <div className="max-w-6xl px-4 text-sm font-light text-center">
+            <PortableText value={pageInfo?.backgroundInformation} />
+          </div>
+        </div>
 
         <div className='pt-10'>
-          <Link href="#skills">
-            <button className='heroButton'>Skills</button>
+          <Link href="#experience">
+            <button className='heroButton'>Experience</button>
           </Link>
           <Link href="#projects">
             <button className='heroButton'>Projects</button>
+          </Link>
+          <Link href="#skills">
+            <button className='heroButton'>Skills</button>
           </Link>
         </div>
       </div>

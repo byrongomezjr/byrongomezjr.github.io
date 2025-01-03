@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'pageInfo',
@@ -26,7 +26,8 @@ export default defineType({
     {
       name: "backgroundInformation",
       title: "BackgroundInformation",
-      type: "string",
+      type: "array",
+      of: [{ type: "block" }]
     },
     {
       name: "profilePic",

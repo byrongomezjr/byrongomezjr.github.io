@@ -15,37 +15,37 @@ function Skills({ skills }: Props) {
       </h3>
 
       <div className='flex flex-col gap-8 mt-24'>
-        {/* Top row - 1 skill */}
-        <div className='flex justify-center gap-8'>
-          {skills?.slice(0, 1).map((skill, index) => (
+        {/* Row 1 - 2 skills */}
+        <div className='flex justify-center gap-4'>
+          {skills?.slice(0, 2).map((skill, index) => (
             <Skill key={skill._id} skill={skill} directionLeft={index % 2 === 0} />
           ))}
         </div>
 
-        {/* Second row - 2 skills */}
-        <div className='flex justify-center gap-8'>
-          {skills?.slice(1, 3).map((skill, index) => (
+        {/* Row 2 - 3 skills */}
+        <div className='flex justify-center gap-4'>
+          {skills?.slice(2, 5).map((skill, index) => (
             <Skill key={skill._id} skill={skill} directionLeft={index % 2 === 0} />
           ))}
         </div>
 
-        {/* Middle row - 3 skills */}
-        <div className='flex justify-center gap-8'>
-          {skills?.slice(3, 6).map((skill, index) => (
+        {/* Row 3 - 4 skills */}
+        <div className='flex justify-center gap-4'>
+          {skills?.slice(5, 9).map((skill, index) => (
             <Skill key={skill._id} skill={skill} directionLeft={index % 2 === 0} />
           ))}
         </div>
 
-        {/* Fourth row - 2 skills */}
-        <div className='flex justify-center gap-8'>
-          {skills?.slice(6, 8).map((skill, index) => (
+        {/* Row 4 - 3 skills */}
+        <div className='flex justify-center gap-4'>
+          {skills?.slice(9, 12).map((skill, index) => (
             <Skill key={skill._id} skill={skill} directionLeft={index % 2 === 0} />
           ))}
         </div>
 
-        {/* Bottom row - 1 skill */}
-        <div className='flex justify-center gap-8'>
-          {skills?.slice(8, 9).map((skill, index) => (
+        {/* Row 5 - 2 skills */}
+        <div className='flex justify-center gap-4'>
+          {skills?.slice(12, 14).map((skill, index) => (
             <Skill key={skill._id} skill={skill} directionLeft={index % 2 === 0} />
           ))}
         </div>

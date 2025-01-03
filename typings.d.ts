@@ -16,7 +16,7 @@ interface Image {
 export interface PageInfo extends SanityBody {
     _type: "pageInfo";
     address: string;
-    backgroundInformation: string;
+    backgroundInformation: PortableText;
     email: string;
     role: string;
     heroImage: Image;
@@ -51,4 +51,24 @@ export interface Social extends SanityBody {
     type: "social";
     title: string;
     url: string;
+}
+
+interface PortableText {
+    split(arg0: string): unknown;
+    _type: "block";
+    children: Array<{
+        _type: "span";
+        text: string;
+    }>;
+}
+
+export interface Experience {
+    _id: string;
+    jobTitle: string;
+    company: string;
+    dateStarted: string;
+    dateEnded?: string;
+    isCurrentlyWorkingHere: boolean;
+    summary: string;
+    technologies: Technology[];
 }

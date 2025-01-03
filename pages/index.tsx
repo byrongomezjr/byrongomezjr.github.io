@@ -12,15 +12,19 @@ import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocials } from '../utils/fetchSocials';
+import Experience from '../components/Experience';
+import { fetchExperiences } from '../utils/fetchExperiences';
+
 
 type Props = {
   pageInfo: PageInfo;
-  skills: Skill[];
+  experiences: Experience[];
   projects: Project[];
+  skills: Skill[];
   socials: Social[];
 };
 
-const Home = ({ pageInfo, projects, skills, socials }: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <div className='bg-[#333333] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20'>
       <Head>
@@ -35,12 +39,16 @@ const Home = ({ pageInfo, projects, skills, socials }: Props) => {
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id='skills' className='snap-start'>
-        <Skills skills={skills} />
+      <section id='experience' className='snap-start'>
+        <Experience experiences={experiences} />
       </section>
 
       <section id='projects' className='snap-start'>
         <Projects projects={projects} />
+      </section>
+
+      <section id='skills' className='snap-start'>
+        <Skills skills={skills} />
       </section>
 
       <section id='footer' className='snap-start'>
@@ -54,6 +62,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
@@ -61,11 +70,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       pageInfo,
+      experiences,
       skills,
       projects,
       socials,
     },
-
     revalidate: 10,
   };
 };
