@@ -1,11 +1,11 @@
 Personal Website
 ---
-Portfolio made using Next.js, Tailwind-CSS, and deployed using GitHub Pages to showcase my projects and personal resume as a Computer Science student.
+Modern portfolio made using Next.js, Tailwind-CSS, and deployed using GitHub Pages to showcase my current projects as a Computer Science student at Rutgers University.
 
 <div id="gif" align="center">
 
 ![portfoliogif](public/portfoliogif.gif)
 
-Deployed website -->> https://www.byrongomezjr.com 😎
+Deployment -->> https://byrongomezjr.github.io/ 😎
 
 <div>
