@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // If your repo name is different from the root domain, add:
-  basePath: '/byrongomezjr.github.io',
+  // If you're deploying to a custom domain, you might not need basePath
+  // basePath: '/byrongomezjr.github.io',
 }
 
 module.exports = nextConfig
