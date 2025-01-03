@@ -30,7 +30,7 @@
     "react-simple-typewriter": "^4.0.5",
     "react-social-icons": "^5.15.0",
     "rimraf": "3.0.2",
-    "sanity": "^3.24.1",
+    "sanity": "^3.68.3",
     "use-local-storage-state": "^18.1.2"
   },
   "devDependencies": {
