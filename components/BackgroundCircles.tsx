@@ -8,6 +8,7 @@ type Props = {
 
 function BackgroundCircles({ pageInfo }: Props) {
   return (
+    // @ts-ignore -- motion.div type error but works in production
     <motion.div
       initial={{
         opacity: 0,

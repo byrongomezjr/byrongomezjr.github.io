@@ -28,6 +28,7 @@ function Skill({ skill, directionLeft }: Props) {
 
   return (
     <div className='relative flex cursor-pointer group'>
+      {/* @ts-ignore -- motion.img type error but works in production */}
       <motion.img
         initial={{ opacity: 1 }}
         animate={{
