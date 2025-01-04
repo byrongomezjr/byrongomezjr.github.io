@@ -14,6 +14,8 @@ import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocials } from '../utils/fetchSocials';
 import Experience from '../components/Experience';
 import { fetchExperiences } from '../utils/fetchExperiences';
+import { useCallback, useEffect, useState } from 'react';
+import { BiUpArrowAlt } from 'react-icons/bi';
 
 
 type Props = {
@@ -25,44 +27,75 @@ type Props = {
 };
 
 const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleScroll = useCallback((e: Event) => {
+    const target = e.target as HTMLElement;
+    if (target.scrollTop > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll);
+      return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    }
+  }, [handleScroll]);
+
+  const scrollToTop = () => {
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className='bg-[#333333] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20'>
+    <div className='scroll-container bg-white dark:bg-[#333333] text-black dark:text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 transition-colors duration-300'>
       <Head>
         <title>Byron Gomez</title>
         <meta name='description' content='' />
-        <link rel='icon' href='/favicon.ico' />
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏽‍💻</text></svg>"
+        />
       </Head>
 
-      {/* @ts-ignore -- Header type error but works in production */}
-      <Header socials={socials} />
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-20 sm:bottom-2 right-2 sm:right-2 z-[9999] p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+          aria-label="Scroll to top"
+        >
+          <BiUpArrowAlt size={32} />
+        </button>
+      )}
 
+      <Header socials={socials} />
       
       <section id='hero' className='snap-start'>
-        {/* @ts-ignore -- Hero type error but works in production */}
         <Hero pageInfo={pageInfo} />
       </section>
 
-      
       <section id='experience' className='snap-start'>
-        {/* @ts-ignore -- Experience type error but works in production */}
         <Experience experiences={experiences} />
       </section>
 
-      
       <section id='projects' className='snap-start'>
-        {/* @ts-ignore -- Projects type error but works in production */}
         <Projects projects={projects} />
       </section>
 
-      
       <section id='skills' className='snap-start'>
-        {/* @ts-ignore -- Skills type error but works in production */}
         <Skills skills={skills} />
       </section>
 
-      
       <section id='footer' className='snap-start'>
-        {/* @ts-ignore -- Footer type error but works in production */}
         <Footer />
       </section>
     </div>

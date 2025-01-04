@@ -16,29 +16,29 @@ function Experience({ experiences }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className='relative flex flex-col items-center h-screen max-w-7xl px-10 mx-auto justify-evenly'
+      className='relative flex flex-col items-center h-screen px-4 sm:px-8 md:px-10 mx-auto justify-evenly'
     >
       <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl'>
         Experience
       </h3>
 
-      <div className='w-full flex space-y-7 overflow-y-scroll flex-col scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 snap-y snap-mandatory mt-32 pb-10'>
+      <div className='w-full max-w-full md:max-w-5xl lg:max-w-6xl mx-auto flex space-y-7 overflow-y-scroll flex-col scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 snap-y snap-mandatory mt-32 pb-10'>
         {experiences?.map(experience => (
           <div
             key={experience._id}
-            className='flex flex-col space-y-4 flex-shrink-0 w-full snap-center p-10'
+            className='flex flex-col space-y-4 flex-shrink-0 w-full snap-center p-4 sm:p-8 md:p-10'
           >
-            <div className='space-y-4'>
+            <div className='space-y-6'>
               <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
-                <h4 className='text-2xl font-light text-white'>{experience.jobTitle}</h4>
+                <h4 className='text-xl sm:text-2xl font-light text-white'>{experience.jobTitle}</h4>
                 <p className='text-gray-500 text-sm sm:text-base'>{experience.dateStarted} — {experience.isCurrentlyWorkingHere ? 'PRESENT' : experience.dateEnded}</p>
               </div>
 
-              <h3 className='text-xl font-semibold text-[#84FF57]'>
+              <h3 className='text-lg sm:text-xl font-semibold text-[#84FF57]'>
                 {experience.company} <span className='inline-block'>↗</span>
               </h3>
 
-              <p className='text-gray-400 text-lg'>
+              <p className='text-gray-400 text-base sm:text-lg max-w-3xl'>
                 {experience.summary}
               </p>
 
