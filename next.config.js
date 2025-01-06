@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // If you're deploying to a custom domain, you might not need basePath
-  // basePath: '/byrongomezjr.github.io',
+  basePath: '/byrongomezjr.github.io/',
+  assetPrefix: '/byrongomezjr.github.io/',
 }
 
 module.exports = nextConfig
