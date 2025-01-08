@@ -26,7 +26,7 @@ function Hero({ pageInfo }: Props) {
     delaySpeed: 2000,
   });
   return (
-    <div className='flex flex-col items-center justify-center h-screen space-y-4 overflow-hidden text-center'>
+    <div className='flex flex-col items-center justify-center h-screen space-y-2 overflow-hidden text-center'>
       {/* @ts-ignore -- BackgroundCircles type error but works in production */}
       <BackgroundCircles pageInfo={pageInfo} />
       <picture>
@@ -52,7 +52,7 @@ function Hero({ pageInfo }: Props) {
           </div>
         </div>
 
-        <div className='pt-10'>
+        <div className='pt-6'>
           {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#experience">
             <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Experience</button>

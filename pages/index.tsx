@@ -61,12 +61,11 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       overflow-y-scroll overflow-x-hidden z-0
       scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#2E7D32]/20 dark:scrollbar-thumb-[#84FF57]/20 transition-colors duration-300'>
       <Head>
-        <title>Byron Gomez</title>
-        <meta name='description' content='' />
-        <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏽‍💻</text></svg>"
-        />
+        <title>Byron Gomez Jr</title>
+        <meta name="description" content="Byron Gomez's Portfolio" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👨🏽‍💻</text></svg>" type="image/svg+xml" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👨🏽‍💻</text></svg>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       {isVisible && (

@@ -28,9 +28,53 @@ function Footer() {
 
         <div className="text-sm">
           <p>
-            Inspired by <span className="font-bold">Sonny Sangha&apos;s</span> Modern Portfolio approach on YouTube, and coded in <span className="font-bold">Cursor</span> by
-            yours truly. Built with <span className="font-bold">Next.js</span> and <span className="font-bold">Tailwind CSS</span>, and deployed with{' '}
-            <span className="font-bold">GitHub Pages</span>.
+            Inspired by <span className="font-bold">Sonny Sangha&apos;s</span>{' '}
+            Modern Portfolio approach on{' '}
+            <a 
+              href="https://www.youtube.com/@sonnysangha" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold hover:opacity-50"
+            >
+              YouTube
+            </a>
+            , and coded in{' '}
+            <a 
+              href="https://www.cursor.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold hover:opacity-50"
+            >
+              Cursor
+            </a>{' '}
+            by yours truly. Built with{' '}
+            <a 
+              href="https://nextjs.org" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold hover:opacity-50"
+            >
+              Next.js
+            </a>{' '}
+            and{' '}
+            <a 
+              href="https://tailwindcss.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold hover:opacity-50"
+            >
+              Tailwind CSS
+            </a>
+            , and deployed with{' '}
+            <a 
+              href="https://pages.github.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-bold hover:opacity-50"
+            >
+              GitHub Pages
+            </a>
+            .
           </p>
         </div>
       </div>
