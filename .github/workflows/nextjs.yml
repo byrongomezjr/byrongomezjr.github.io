@@ -26,35 +26,22 @@ jobs:
         with:
           node-version: "20.10.0"
           
-      - name: Debug environment
+      - name: Install npm@latest
         run: |
-          echo "Node version:"
-          node -v
-          echo "NPM version before upgrade:"
-          npm -v
-          
-      - name: Force NPM upgrade
-        run: |
-          sudo npm install -g npm@latest
-          echo "NPM version after upgrade:"
-          npm -v
+          npm install -g npm@latest
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Install dependencies
         run: |
-          echo "Cleaning up..."
+          npm cache clean --force
           rm -rf node_modules
           rm -f package-lock.json
-          echo "Installing dependencies..."
-          npm install --ignore-scripts --no-package-lock --no-audit --force
+          npm install --legacy-peer-deps --prefer-offline --no-audit --no-fund
           
       - name: Build with Next.js
-        run: |
-          echo "Starting build..."
-          npm run build
-          echo "Build completed"
+        run: npm run build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
