@@ -24,17 +24,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.10.0"
+          node-version: "20.11.0"
           
-      - name: Install specific npm version
+      - name: Install dependencies
         run: |
           echo "Current Node version: $(node -v)"
           echo "Current NPM version: $(npm -v)"
-          npm install -g npm@10.2.3
-          echo "Updated NPM version: $(npm -v)"
-          
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
+          npm install --legacy-peer-deps
           
       - name: Build with Next.js
         run: npm run build
