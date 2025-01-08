@@ -26,7 +26,9 @@ function Projects({ projects }: Props) {
 
       <div className='w-full flex flex-col space-y-7 overflow-y-scroll 
         max-w-[90%] sm:max-w-[85%] md:max-w-5xl lg:max-w-6xl
-        scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 
+        scrollbar-thin 
+        scrollbar-track-gray-400/20 
+        scrollbar-thumb-[#2E7D32] dark:scrollbar-thumb-[#84FF57]/80 
         snap-y snap-mandatory mt-32 pb-10
         h-[70vh] sm:h-[75vh]'
       >
@@ -37,7 +39,7 @@ function Projects({ projects }: Props) {
           >
             <div className='space-y-6'>
               <h4 className='text-xl sm:text-2xl font-semibold'>
-                <span className='underline decoration-[#84FF57]/50'>
+                <span className='underline decoration-[#2E7D32] dark:decoration-[#84FF57]/80'>
                   Case Study {i + 1} of {projects.length}:
                 </span>{' '}
                 {project?.title}
@@ -68,7 +70,10 @@ function Projects({ projects }: Props) {
                     href={project.linkToBuild}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className='px-6 py-2 text-sm sm:text-base border rounded-full border-[#84FF57]/50 hover:border-[#84FF57]/40 hover:bg-[#84FF57]/10 transition-colors duration-200'
+                    className='px-6 py-2 text-sm sm:text-base border rounded-full 
+                      border-[#2E7D32] hover:border-[#2E7D32] hover:bg-[#2E7D32] 
+                      dark:border-[#84FF57]/80 dark:hover:border-[#84FF57]/80 dark:hover:bg-[#84FF57]/80 
+                      transition-colors duration-200'
                   >
                     View Project
                   </a>

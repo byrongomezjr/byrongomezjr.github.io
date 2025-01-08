@@ -36,7 +36,7 @@ function ScrollToTop() {
             {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-10 sm:bottom-2 right-2 sm:right-2 z-[9999] p-2 rounded-full text-3xl cursor-pointer hover:opacity-70 transition-opacity duration-200"
+          className="fixed bottom-0 sm:bottom-0 right-0 sm:right-0 z-[9999] p-2 rounded-full text-3xl cursor-pointer hover:opacity-70 transition-opacity duration-200"
           aria-label="Scroll to top"
         >
           👆🏼

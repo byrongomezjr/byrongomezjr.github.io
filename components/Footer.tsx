@@ -7,7 +7,7 @@ const SocialIcon = SocialIconType as React.FC<React.ComponentProps<typeof Social
 
 function Footer() {
   return (
-    <div className="w-full p-4 bg-white dark:bg-[#333333] text-black dark:text-white transition-colors duration-300">
+    <footer className="sticky bottom-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
       <div className="flex flex-col items-center justify-between max-w-7xl mx-auto md:flex-row">
         <div className="flex space-x-4">
           <SocialIcon
@@ -34,7 +34,7 @@ function Footer() {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

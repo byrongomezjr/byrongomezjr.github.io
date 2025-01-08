@@ -17,8 +17,10 @@ function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
       `Hello, my name is ${pageInfo?.name}`,
-      'My main focus is implementing clean design,',
-      '...and building responsive applications that live on the internet.',
+      'My main focus is...',
+      'implementing clean design,',
+      '& building responsive applications,',
+      'that live on the internet.',
     ],
     loop: true,
     delaySpeed: 2000,
@@ -53,15 +55,15 @@ function Hero({ pageInfo }: Props) {
         <div className='pt-10'>
           {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#experience">
-            <button className='heroButton'>Experience</button>
+            <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Experience</button>
           </Link>
           {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#projects">
-            <button className='heroButton'>Projects</button>
+            <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Projects</button>
           </Link>
           {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#skills">
-            <button className='heroButton'>Skills</button>
+            <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Skills</button>
           </Link>
         </div>
       </div>

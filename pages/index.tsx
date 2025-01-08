@@ -57,7 +57,9 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   };
 
   return (
-    <div className='scroll-container bg-white dark:bg-[#333333] text-black dark:text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 transition-colors duration-300'>
+    <div className='scroll-container bg-white dark:bg-[#333333] text-black dark:text-white h-screen 
+      overflow-y-scroll overflow-x-hidden z-0
+      scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#2E7D32]/20 dark:scrollbar-thumb-[#84FF57]/20 transition-colors duration-300'>
       <Head>
         <title>Byron Gomez</title>
         <meta name='description' content='' />
@@ -70,7 +72,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-20 sm:bottom-2 right-2 sm:right-2 z-[9999] p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+          className="fixed bottom-0 sm:bottom-0 right-0 sm:right-0 z-[9999] p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
           aria-label="Scroll to top"
         >
           <BiUpArrowAlt size={32} />
@@ -79,23 +81,23 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 
       <Header socials={socials} />
       
-      <section id='hero' className='snap-start'>
+      <section id='hero'>
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id='experience' className='snap-start'>
+      <section id='experience'>
         <Experience experiences={experiences} />
       </section>
 
-      <section id='projects' className='snap-start'>
+      <section id='projects'>
         <Projects projects={projects} />
       </section>
 
-      <section id='skills' className='snap-start'>
+      <section id='skills'>
         <Skills skills={skills} />
       </section>
 
-      <section id='footer' className='snap-start'>
+      <section id='footer'>
         <Footer />
       </section>
     </div>
