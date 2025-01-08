@@ -43,7 +43,7 @@ function Skill({ skill, directionLeft }: Props) {
         }}
         style={{ opacity: 1 }}
         src={urlFor(skill?.image).url()}
-        className='object-cover w-20 h-20 border border-gray-700 rounded-full xl:w-30 xl:h-30 md:w-28 md:h-28 filter group-hover:grayscale'
+        className='object-cover w-20 h-20 rounded-full xl:w-30 xl:h-30 md:w-28 md:h-28 filter group-hover:grayscale'
       />
       <div className='absolute z-0 w-20 h-20 transition duration-300 ease-in-out rounded-full opacity-0 group-hover:opacity-75 group-hover:bg-gray-700 md:w-28 md:h-28 xl:w-32 xl:h-32'>
         <div className='flex items-center justify-center h-full'>

@@ -22,7 +22,12 @@ function Experience({ experiences }: Props) {
         Experience
       </h3>
 
-      <div className='w-full max-w-full md:max-w-5xl lg:max-w-6xl mx-auto flex space-y-7 overflow-y-scroll flex-col scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 snap-y snap-mandatory mt-32 pb-10'>
+      <div className='w-full flex flex-col space-y-7 overflow-y-scroll 
+        max-w-[90%] sm:max-w-[85%] md:max-w-5xl lg:max-w-6xl 
+        scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#84FF57]/20 
+        snap-y snap-mandatory mt-32 pb-10
+        h-[70vh] sm:h-[75vh]'
+      >
         {experiences?.map(experience => (
           <div
             key={experience._id}
