@@ -18,7 +18,7 @@ permissions:
 # Allow only one concurrent deployment
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Build job
@@ -31,13 +31,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
           cache: 'npm'
           
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
       - name: Install dependencies
         run: |
+          rm -rf node_modules
+          rm -f package-lock.json
           npm install
-          npm ci
           
       - name: Build with Next.js
         run: npm run build

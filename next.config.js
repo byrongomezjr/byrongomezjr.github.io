@@ -4,8 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/byrongomezjr.github.io/',
-  assetPrefix: '/byrongomezjr.github.io/',
 }
 
 module.exports = nextConfig
