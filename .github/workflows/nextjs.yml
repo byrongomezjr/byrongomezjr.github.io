@@ -26,17 +26,18 @@ jobs:
         with:
           node-version: "20.10.0"
           
-      - name: Install dependencies
+      - name: Install specific npm version
         run: |
           echo "Current Node version: $(node -v)"
           echo "Current NPM version: $(npm -v)"
-          npm install -g npm@latest
+          npm install -g npm@10.2.3
           echo "Updated NPM version: $(npm -v)"
-          npm install --legacy-peer-deps
+          
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
           
       - name: Build with Next.js
-        run: |
-          npm run build
+        run: npm run build
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
