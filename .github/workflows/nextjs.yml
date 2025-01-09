@@ -42,12 +42,10 @@ jobs:
           npm run build
           touch out/.nojekyll
           
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: github-pages
-          path: ./out
-          if-no-files-found: error
+          path: out
 
   deploy:
     needs: build
@@ -59,5 +57,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
