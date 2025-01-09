@@ -41,9 +41,16 @@ jobs:
           
       - name: Install dependencies
         run: |
+          echo "Current Node version: $(node -v)"
+          echo "Current NPM version: $(npm -v)"
           npm cache clean --force
-          rm -rf node_modules package-lock.json
-          npm ci --legacy-peer-deps
+          rm -rf node_modules
+          # Check if package-lock.json exists
+          if [ -f "package-lock.json" ]; then
+            npm ci --legacy-peer-deps
+          else
+            npm install --legacy-peer-deps
+          fi
           
       - name: Build with Next.js
         run: |
