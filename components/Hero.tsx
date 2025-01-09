@@ -26,7 +26,6 @@ function Hero({ pageInfo }: Props) {
   });
   return (
     <div className='flex flex-col items-center justify-center h-screen space-y-2 overflow-hidden text-center'>
-      {/* @ts-ignore -- BackgroundCircles type error but works in production */}
       <BackgroundCircles pageInfo={pageInfo} />
       <picture>
         <img
@@ -41,9 +40,9 @@ function Hero({ pageInfo }: Props) {
         </h2>
         <h1 className='px-8 font-semibold text-1xl lg:text-2xl'>
           <span className='mr-3'>{text}</span>
-          {/* @ts-ignore -- Cursor type error but works in production */}
           <Cursor cursorColor='lightgreen' />
         </h1>
+
         <div className="flex flex-col items-center mt-6">
           <div className="max-w-6xl px-4 text-sm font-light text-center">
             {/* @ts-ignore -- PortableText type error but works in production */}
@@ -52,15 +51,12 @@ function Hero({ pageInfo }: Props) {
         </div>
 
         <div className='pt-6'>
-          {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#experience">
             <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Experience</button>
           </Link>
-          {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#projects">
             <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Projects</button>
           </Link>
-          {/* @ts-ignore -- Link type error but works in production */}
           <Link href="#skills">
             <button className='heroButton hover:text-[#2E7D32] dark:hover:text-[#84FF57]/80'>Skills</button>
           </Link>
