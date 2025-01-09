@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Make sure basePath is set correctly for GitHub Pages
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
   productionBrowserSourceMaps: false,
   swcMinify: true,
   compress: true,

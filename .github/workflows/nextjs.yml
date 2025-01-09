@@ -64,24 +64,36 @@ jobs:
         run: |
           mkdir -p clean-out
           
-          # Copy only essential files
-          echo "Copying essential files..."
+          # First, copy the index.html to the root
+          cp out/index.html clean-out/index.html || echo "No index.html found in out/"
+          
+          # Create _next directory structure
+          mkdir -p clean-out/_next/static
+          
+          # Copy static assets
           cp -r out/_next/static/css clean-out/_next/static/ 2>/dev/null || true
           cp -r out/_next/static/media clean-out/_next/static/ 2>/dev/null || true
+          cp -r out/_next/static/chunks clean-out/_next/static/ 2>/dev/null || true
           cp -r out/assets clean-out/ 2>/dev/null || true
           cp -r out/images clean-out/ 2>/dev/null || true
           
-          # Copy HTML and small JS files
-          find out -name "*.html" -exec cp --parents {} clean-out/ \;
+          # Copy remaining HTML files (except index.html since we already copied it)
+          find out -name "*.html" ! -name "index.html" -exec cp --parents {} clean-out/ \;
+          
+          # Copy JS files (limiting size)
           find out/_next/static -name "*.js" -size -1M -exec cp --parents {} clean-out/ \;
           
           # Add .nojekyll
           touch clean-out/.nojekyll
           
           # Debug information
+          echo "Contents of clean-out directory:"
+          ls -la clean-out/
+          echo "Contents of clean-out/_next/static (if exists):"
+          ls -la clean-out/_next/static/ 2>/dev/null || echo "No static directory"
+          
           echo "Final artifact contents and sizes:"
           du -sh clean-out/*
-          find clean-out -type f -size +1M -exec echo "Large file: {}" \; -exec ls -lh {} \;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
