@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /byrongomezjr.github.io  # Replace with your actual repo name
+      NEXT_PUBLIC_BASE_PATH: /byrongomezjr.github.io
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
       - name: Build with Next.js
         run: |
           npm run build
-          touch out/.nojekyll  # Prevents GitHub Pages from processing files with Jekyll
+          touch out/.nojekyll
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
