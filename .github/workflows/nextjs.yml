@@ -17,57 +17,57 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: /portfolio-2.0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+        with:
+          clean: true
+          
+      - name: Clean GitHub Actions cache
+        run: |
+          rm -rf ~/.cache/github-actions
+          rm -rf ~/.npm
+          
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.10.0"
-          
-      - name: Debug environment
-        run: |
-          echo "Node version:"
-          node -v
-          echo "NPM version before upgrade:"
-          npm -v
-          
-      - name: Force NPM upgrade
-        run: |
-          sudo npm install -g npm@latest
-          echo "NPM version after upgrade:"
-          npm -v
+          node-version: "20.11.0"
+          cache: 'npm'
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+          
       - name: Install dependencies
         run: |
-          echo "Cleaning up..."
+          echo "Current Node version: $(node -v)"
+          echo "Current NPM version: $(npm -v)"
+          npm cache clean --force
           rm -rf node_modules
           rm -f package-lock.json
-          echo "Installing dependencies..."
-          npm install --ignore-scripts --no-package-lock --no-audit --force
+          npm install --legacy-peer-deps
           
       - name: Build with Next.js
         run: |
-          echo "Starting build..."
           npm run build
-          echo "Build completed"
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+          touch out/.nojekyll
+          
+      - name: Upload to GitHub Pages
+        uses: actions/upload-artifact@v4
         with:
-          path: ./out
+          name: github-pages
+          path: out
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
