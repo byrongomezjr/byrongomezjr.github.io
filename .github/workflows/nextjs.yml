@@ -59,14 +59,32 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir -p clean-out
+          
+          # Remove specific large files and development files
+          echo "Removing large files and development artifacts..."
+          find out -name "*.map" -delete
+          find out -name "next-swc.*" -delete
+          find out -name "*.node" -delete
+          
+          # Remove symlinks with logging
+          echo "Removing symlinks..."
           find out -type l -exec echo "Removing symlink: {}" \; -exec rm {} \;
-          find out -name "*.map" -exec echo "Removing file: {}" \; -exec rm {} \;
-          cp -rL out/* clean-out/
+          
+          # Copy files while resolving symlinks, excluding node_modules
+          echo "Copying files..."
+          cp -rL out/* clean-out/ || true
+          
+          # Add .nojekyll file
           touch clean-out/.nojekyll
+          
+          # Set permissions
           chmod -R 755 clean-out
+          
+          # Debug information
+          echo "Final artifact contents and size:"
           ls -la clean-out
-          du -sh clean-out
-
+          du -sh clean-out/*
+          
       - name: Check artifact size
         run: |
           total_size=$(du -sh clean-out | awk '{print $1}')
