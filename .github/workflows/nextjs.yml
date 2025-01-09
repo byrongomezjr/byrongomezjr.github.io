@@ -54,42 +54,62 @@ jobs:
           
       - name: Build with Next.js
         run: |
+          # Remove problematic files before build
+          rm -f ./node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
+          rm -f ./node_modules/@sentry/cli/sentry-cli
+          rm -rf ./node_modules/react-social-icons/.cache
+          rm -rf ./sanity/node_modules/.sanity/vite/deps
+          rm -rf ./sanity/node_modules/typescript/lib/tsserverlibrary.js
+          rm -rf ./sanity/node_modules/typescript/lib/tsserver.js
+          rm -rf ./sanity/node_modules/typescript/lib/typescriptServices.js
+          
           npm run build
           
       - name: Prepare artifact
         run: |
           mkdir -p clean-out
           
-          # Remove specific large files and development files
-          echo "Removing large files and development artifacts..."
+          # Remove development files and caches
+          echo "Removing development files..."
           find out -name "*.map" -delete
           find out -name "next-swc.*" -delete
           find out -name "*.node" -delete
-          find out -name "cache" -type d -exec rm -rf {} +
           find out -name ".next" -type d -exec rm -rf {} +
+          find out -name "cache" -type d -exec rm -rf {} +
+          find out -name "node_modules" -type d -exec rm -rf {} +
           
-          # Remove any files larger than 50MB
-          find out -type f -size +50M -exec echo "Large file found: {}" \; -delete
+          # Remove specific large files
+          echo "Removing specific large files..."
+          rm -rf out/_next/static/chunks/pages/index.js
           
-          # Copy only necessary files
-          echo "Copying only necessary files..."
-          cp -r out/404.html clean-out/ 2>/dev/null || true
-          cp -r out/index.html clean-out/ 2>/dev/null || true
-          cp -r out/_next clean-out/ 2>/dev/null || true
-          cp -r out/assets clean-out/ 2>/dev/null || true
-          cp -r out/images clean-out/ 2>/dev/null || true
+          # Copy only essential files
+          echo "Copying essential files..."
+          mkdir -p clean-out/_next/static
           
-          # Add .nojekyll file
+          # Copy static assets selectively
+          cp -r out/_next/static/css clean-out/_next/static/ 2>/dev/null || true
+          cp -r out/_next/static/media clean-out/_next/static/ 2>/dev/null || true
+          
+          # Copy HTML files
+          find out -name "*.html" -exec cp --parents {} clean-out/ \;
+          
+          # Copy small JavaScript files only
+          find out/_next/static -name "*.js" -size -1M -exec cp --parents {} clean-out/ \;
+          
+          # Add .nojekyll
           touch clean-out/.nojekyll
           
           # Set permissions
           chmod -R 755 clean-out
           
-          # Debug information
           echo "Final artifact contents and sizes:"
           du -sh clean-out/*
           echo "Total size:"
           du -sh clean-out
+          
+          # List any remaining large files
+          echo "Checking for remaining large files:"
+          find clean-out -type f -size +1M -exec ls -lh {} \;
           
       - name: Upload to GitHub Pages
         uses: actions/upload-artifact@v4
