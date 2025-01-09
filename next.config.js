@@ -12,6 +12,20 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  webpack: (config, { isServer }) => {
+    config.optimization.minimize = true;
+
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
+        maxSize: 1000000,
+      };
+    }
+
+    return config;
+  },
 }
 
 module.exports = nextConfig
