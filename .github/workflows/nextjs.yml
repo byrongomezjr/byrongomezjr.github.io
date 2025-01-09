@@ -12,120 +12,77 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: ""
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          clean: true
-          
-      - name: Clean GitHub Actions cache
-        run: |
-          rm -rf ~/.cache/github-actions
-          rm -rf ~/.npm
-          
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.11.0"
+          node-version: "20"
           cache: 'npm'
-          
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-          
+
+      - name: Delete old artifacts
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: github-pages
+          failOnError: false
+
       - name: Install dependencies
-        run: |
-          echo "Current Node version: $(node -v)"
-          echo "Current NPM version: $(npm -v)"
-          npm cache clean --force
-          rm -rf node_modules
-          # Check if package-lock.json exists
-          if [ -f "package-lock.json" ]; then
-            npm ci --legacy-peer-deps
-          else
-            npm install --legacy-peer-deps
-          fi
-          
+        run: npm ci
+
       - name: Build with Next.js
         run: |
           # Remove problematic files before build
+          rm -rf .next
+          rm -rf out
           rm -f ./node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
           rm -f ./node_modules/@sentry/cli/sentry-cli
           rm -rf ./node_modules/react-social-icons/.cache
-          rm -rf ./sanity/node_modules/.sanity/vite/deps
-          rm -rf ./sanity/node_modules/typescript/lib/tsserverlibrary.js
-          rm -rf ./sanity/node_modules/typescript/lib/tsserver.js
-          rm -rf ./sanity/node_modules/typescript/lib/typescriptServices.js
+          rm -rf ./sanity/node_modules
           
+          # Build the project
           npm run build
           
       - name: Prepare artifact
         run: |
           mkdir -p clean-out
           
-          # Remove development files and caches
-          echo "Removing development files..."
-          find out -name "*.map" -delete
-          find out -name "next-swc.*" -delete
-          find out -name "*.node" -delete
-          find out -name ".next" -type d -exec rm -rf {} +
-          find out -name "cache" -type d -exec rm -rf {} +
-          find out -name "node_modules" -type d -exec rm -rf {} +
-          
-          # Remove specific large files
-          echo "Removing specific large files..."
-          rm -rf out/_next/static/chunks/pages/index.js
-          
           # Copy only essential files
           echo "Copying essential files..."
-          mkdir -p clean-out/_next/static
-          
-          # Copy static assets selectively
           cp -r out/_next/static/css clean-out/_next/static/ 2>/dev/null || true
           cp -r out/_next/static/media clean-out/_next/static/ 2>/dev/null || true
+          cp -r out/assets clean-out/ 2>/dev/null || true
+          cp -r out/images clean-out/ 2>/dev/null || true
           
-          # Copy HTML files
+          # Copy HTML and small JS files
           find out -name "*.html" -exec cp --parents {} clean-out/ \;
-          
-          # Copy small JavaScript files only
           find out/_next/static -name "*.js" -size -1M -exec cp --parents {} clean-out/ \;
           
           # Add .nojekyll
           touch clean-out/.nojekyll
           
-          # Set permissions
-          chmod -R 755 clean-out
-          
+          # Debug information
           echo "Final artifact contents and sizes:"
           du -sh clean-out/*
-          echo "Total size:"
-          du -sh clean-out
-          
-          # List any remaining large files
-          echo "Checking for remaining large files:"
-          find clean-out -type f -size +1M -exec ls -lh {} \;
-          
-      - name: Upload to GitHub Pages
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: clean-out
-          retention-days: 1
-          if-no-files-found: error
-          compression-level: 9
+          find clean-out -type f -size +1M -exec echo "Large file: {}" \; -exec ls -lh {} \;
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: clean-out
+          
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
