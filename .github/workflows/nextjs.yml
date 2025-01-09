@@ -41,12 +41,9 @@ jobs:
           
       - name: Install dependencies
         run: |
-          echo "Current Node version: $(node -v)"
-          echo "Current NPM version: $(npm -v)"
           npm cache clean --force
-          rm -rf node_modules
-          rm -f package-lock.json
-          npm install --legacy-peer-deps
+          rm -rf node_modules package-lock.json
+          npm ci --legacy-peer-deps
           
       - name: Build with Next.js
         run: |
@@ -54,18 +51,23 @@ jobs:
           
       - name: Prepare artifact
         run: |
-          # Create a fresh directory
           mkdir -p clean-out
-          # Copy files to new directory, following symlinks
+          find out -type l -exec echo "Removing symlink: {}" \; -exec rm {} \;
+          find out -name "*.map" -exec echo "Removing file: {}" \; -exec rm {} \;
           cp -rL out/* clean-out/
-          # Add .nojekyll
           touch clean-out/.nojekyll
-          # Set permissions
           chmod -R 755 clean-out
-          # Debug info
-          echo "Clean output directory contents:"
           ls -la clean-out
           du -sh clean-out
+
+      - name: Check artifact size
+        run: |
+          total_size=$(du -sh clean-out | awk '{print $1}')
+          echo "Total size of clean-out: $total_size"
+          if [ $(du -s clean-out | awk '{print $1}') -gt 10485760 ]; then
+            echo "Error: Artifact size exceeds 10GB limit"
+            exit 1
+          fi
           
       - name: Upload to GitHub Pages
         uses: actions/upload-artifact@v4
