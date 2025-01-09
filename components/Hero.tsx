@@ -17,10 +17,9 @@ function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
       `Hello, my name is ${pageInfo?.name}`,
-      'My main focus is...',
-      'implementing clean design,',
-      '& building responsive applications,',
-      'that live on the internet.',
+      'I build scalable systems,',
+      'and solve complex problems...',
+      'for the modern web.',
     ],
     loop: true,
     delaySpeed: 2000,

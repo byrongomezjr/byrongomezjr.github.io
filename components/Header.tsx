@@ -62,9 +62,9 @@ export default function Header({ socials }: Props) {
           network='email'
           fgColor='gray'
           bgColor='transparent'
-          url='#contact'
+          url='mailto:byrongomezjr@protonmail.com'
         />
-        <Link href='#contact'>
+        <Link href='mailto:byrongomezjr@protonmail.com'>
           <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
             Get In Touch
           </p>
