@@ -33,18 +33,29 @@ jobs:
           name: github-pages
           failOnError: false
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean install dependencies
+        run: |
+          # Remove existing lock file and node_modules
+          rm -f package-lock.json
+          rm -rf node_modules
+          
+          # Clean npm cache
+          npm cache clean --force
+          
+          # Install dependencies and generate new lock file
+          npm install
+          
+          # Remove problematic packages
+          rm -rf node_modules/@next/swc-darwin-arm64
+          rm -rf node_modules/@sentry/cli
+          rm -rf node_modules/react-social-icons/.cache
+          rm -rf sanity/node_modules
 
       - name: Build with Next.js
         run: |
-          # Remove problematic files before build
+          # Remove existing build artifacts
           rm -rf .next
           rm -rf out
-          rm -f ./node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
-          rm -f ./node_modules/@sentry/cli/sentry-cli
-          rm -rf ./node_modules/react-social-icons/.cache
-          rm -rf ./sanity/node_modules
           
           # Build the project
           npm run build
