@@ -51,21 +51,27 @@ jobs:
       - name: Build with Next.js
         run: |
           npm run build
-          touch out/.nojekyll
-          find out -type l -delete
-          find out -type f -links +1 -delete
-          chmod -R 755 out
           
-      - name: Debug output directory
+      - name: Prepare artifact
         run: |
-          du -sh out/
-          find out/ -type f -exec ls -l {} \;
+          # Create a fresh directory
+          mkdir -p clean-out
+          # Copy files to new directory, following symlinks
+          cp -rL out/* clean-out/
+          # Add .nojekyll
+          touch clean-out/.nojekyll
+          # Set permissions
+          chmod -R 755 clean-out
+          # Debug info
+          echo "Clean output directory contents:"
+          ls -la clean-out
+          du -sh clean-out
           
       - name: Upload to GitHub Pages
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: out
+          path: clean-out
           retention-days: 1
           if-no-files-found: error
           compression-level: 9
