@@ -53,6 +53,13 @@ jobs:
           npm run build
           touch out/.nojekyll
           find out -type l -delete
+          find out -type f -links +1 -delete
+          chmod -R 755 out
+          
+      - name: Debug output directory
+        run: |
+          du -sh out/
+          find out/ -type f -exec ls -l {} \;
           
       - name: Upload to GitHub Pages
         uses: actions/upload-artifact@v4
