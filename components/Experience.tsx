@@ -50,6 +50,7 @@ function Experience({ experiences }: Props) {
                 {experience.summary}
               </p>
 
+              {/* Technologies */}
               <div className='flex flex-wrap gap-2'>
                 {experience.technologies?.map((technology) => (
                   <span

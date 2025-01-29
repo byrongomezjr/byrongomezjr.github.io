@@ -32,4 +32,4 @@ function BackgroundCircles({ pageInfo }: Props) {
   );
 }
 
-export default BackgroundCircles;
+export default BackgroundCircles
