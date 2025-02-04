@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'project',
@@ -10,6 +10,13 @@ export default defineType({
       title: "title",
       description: "Title of the project",
       type: "string",
+    },
+    {
+      name: "order",
+      title: "Display Order",
+      type: "number",
+      description: "Lower numbers will display first (1 being most important)",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "image",
@@ -36,4 +43,13 @@ export default defineType({
       type: "url",
     },
   ],
+  orderings: [
+    {
+      title: 'Display Order',
+      name: 'orderAsc',
+      by: [
+        { field: 'order', direction: 'asc' }
+      ]
+    }
+  ]
 })

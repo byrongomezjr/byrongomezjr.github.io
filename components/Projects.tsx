@@ -32,7 +32,9 @@ function Projects({ projects }: Props) {
         snap-y snap-mandatory mt-32 pb-10
         h-[70vh] sm:h-[75vh]'
       >
-        {projects?.map((project, i) => (
+        {projects
+          ?.sort((a, b) => (a.order || 0) - (b.order || 0))
+          ?.map((project, i) => (
           <div 
             key={project._id} 
             className='flex flex-col space-y-6 flex-shrink-0 w-full snap-center p-4 sm:p-8 md:p-10'
