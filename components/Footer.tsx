@@ -26,19 +26,19 @@ function Footer() {
       </div>
 
       <p className="text-sm">
-        Inspired by <span className="font-bold">Sonny Sangha&apos;s</span> Modern Portfolio approach; check out his{' '}
+        Inspired by <span className="font-bold">Sonny Sangha&apos;s</span> Modern Portfolio approach, check out his{' '}
         <a href="https://www.youtube.com/@sonnysangha" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
           YouTube
-        </a> channel, coded in{' '}
+        </a> channel. Coded in{' '}
         <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
           Cursor
-        </a> by yours truly. Built with{' '}
+        </a> by yours truly; & built with{' '}
         <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
-          Next.js
+          Next.js,
         </a> and{' '}
         <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
-          Tailwind CSS
-        </a>, and deployed with{' '}
+          Tailwind CSS;
+        </a> deployed with{' '}
         <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
           GitHub Pages
         </a>.
