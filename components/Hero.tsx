@@ -3,7 +3,6 @@ import React from 'react';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import { urlFor } from '../sanity';
 import { PageInfo } from '../typings';
-import BackgroundCircles from './BackgroundCircles';
 import { PortableText } from "@portabletext/react";
 
 type Props = {
@@ -25,8 +24,7 @@ function Hero({ pageInfo }: Props) {
     delaySpeed: 2000,
   });
   return (
-    <div className='flex flex-col items-center justify-center h-screen space-y-2 overflow-hidden text-center'>
-      <BackgroundCircles pageInfo={pageInfo} />
+    <div className='relative z-10 flex flex-col items-center justify-center h-screen space-y-2 overflow-hidden text-center'>
       <picture>
         <img
           className='relative object-cover w-32 h-32 mx-auto rounded-full'
@@ -35,9 +33,9 @@ function Hero({ pageInfo }: Props) {
         />
       </picture>
       <div className='z-20'>
-        <h2 className='text-sm text-gray-500 uppercase pb-2 tracking-[12px]'>
+        {/* <h2 className='text-sm text-slate-300 uppercase pb-2 tracking-[12px]'>
           {pageInfo?.role}
-        </h2>
+        </h2> */}
         <h1 className='px-8 font-semibold text-1xl lg:text-2xl'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='lightgreen' />

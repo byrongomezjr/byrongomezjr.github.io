@@ -33,6 +33,7 @@
     "@sanity/ui": "^1.9.3",
     "@sanity/vision": "^3.24.1",
     "@sentry/nextjs": "^7.40.0",
+    "@types/three": "^0.177.0",
     "framer-motion": "10.16.4",
     "groq": "^3.68.3",
     "i": "^0.3.7",
@@ -47,11 +48,11 @@
     "react-social-icons": "^5.15.0",
     "rimraf": "3.0.2",
     "sanity": "^3.68.3",
+    "scheduler": "^0.23.0",
     "styled-components": "^6.1.14",
     "three": "^0.159.0",
     "use-local-storage-state": "^18.1.2",
-    "zustand": "^5.0.3",
-    "scheduler": "^0.23.0"
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "18.14.2",

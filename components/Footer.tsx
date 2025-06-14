@@ -7,7 +7,7 @@ const SocialIcon = SocialIconType as React.FC<React.ComponentProps<typeof Social
 
 function Footer() {
   return (
-    <footer className="sticky bottom-0 flex items-center justify-between max-w-7xl mx-auto z-20 p-5">
+    <footer className="sticky bottom-0 z-20 flex items-center justify-between p-5 mx-auto max-w-7xl">
       <div className="flex items-center space-x-4">
         <SocialIcon
           url="https://instagram.com/byrongomezjr"
@@ -25,19 +25,15 @@ function Footer() {
         />
       </div>
 
-      <p className="text-sm">
-        Inspired by <span className="font-bold">Sonny Sangha&apos;s</span> Modern Portfolio approach, check out his{' '}
-        <a href="https://www.youtube.com/@sonnysangha" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
-          YouTube
-        </a> channel. Coded in{' '}
+      <p className="flex-1 mx-4 text-sm text-center">
+        <a>Coded</a>
         <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
-          Cursor
-        </a> by yours truly; & built with{' '}
+        </a> by yours truly, & built with{' '}
         <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
           Next.js,
-        </a> and{' '}
+        </a>{' '}
         <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
-          Tailwind CSS;
+          Tailwind CSS & Three.js;
         </a> deployed with{' '}
         <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:opacity-50">
           GitHub Pages

@@ -36,8 +36,13 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-3 text-gray-400 hover:text-gray-300 transition-colors duration-200"
+      className="relative z-[10000] p-3 text-gray-400 hover:text-gray-300 transition-colors duration-200 pointer-events-auto bg-transparent"
       aria-label="Toggle theme"
+      style={{ 
+        pointerEvents: 'auto',
+        isolation: 'isolate',
+        position: 'relative'
+      }}
     >
       {isDark ? <BsSun size={20} /> : <BsMoon size={20} />}
     </button>

@@ -10,11 +10,11 @@ type Props = {
 function Skills({ skills }: Props) {
   return (
     <div className='flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] px-4 sm:px-8 md:px-10 min-h-screen justify-center mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl'>
+      <h3 className='absolute top-24 uppercase tracking-[20px] dark:text-[#84FF57] text-[#000000] text-1xl'>
         Skills
       </h3>
 
-      <div className='flex flex-col gap-8 sm:gap-10 mt-32 max-w-full md:max-w-5xl lg:max-w-6xl mx-auto'>
+      <div className='flex flex-col max-w-full gap-8 mx-auto mt-32 sm:gap-10 md:max-w-5xl lg:max-w-6xl'>
         {/* Diamond Pattern */}
         {/* Row 1 - 2 skills */}
         <div className='flex justify-center gap-4 sm:gap-6'>

@@ -3,6 +3,8 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import SimpleBackground3D from '../components/SimpleBackground3D';
+import EnhancedVisualEffects from '../components/EnhancedVisualEffects';
 //import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
@@ -60,6 +62,13 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
     <div className='scroll-container bg-white dark:bg-[#333333] text-black dark:text-white h-screen 
       overflow-y-scroll overflow-x-hidden z-0
       scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#2E7D32]/20 dark:scrollbar-thumb-[#84FF57]/20 transition-colors duration-300'>
+      
+      {/* Global 3D Background */}
+      <SimpleBackground3D />
+      
+      {/* Enhanced Visual Effects */}
+      <EnhancedVisualEffects />
+      
       <Head>
         <title>Byron Gomez Jr</title>
         <meta name="description" content="Byron Gomez's Portfolio" />
@@ -80,23 +89,23 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 
       <Header socials={socials} />
       
-      <section id='hero'>
+      <section id='hero' className="relative z-20">
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id='experience'>
+      <section id='experience' className="relative z-20">
         <Experience experiences={experiences} />
       </section>
 
-      <section id='projects'>
+      <section id='projects' className="relative z-20">
         <Projects projects={projects} />
       </section>
 
-      <section id='skills'>
+      <section id='skills' className="relative z-20">
         <Skills skills={skills} />
       </section>
 
-      <section id='footer'>
+      <section id='footer' className="relative z-20">
         <Footer />
       </section>
     </div>

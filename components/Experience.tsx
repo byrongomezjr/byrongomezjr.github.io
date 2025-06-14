@@ -16,9 +16,9 @@ function Experience({ experiences }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className='relative flex flex-col items-center h-screen px-4 sm:px-8 md:px-10 mx-auto justify-evenly'
+      className='relative flex flex-col items-center h-screen px-4 mx-auto sm:px-8 md:px-10 justify-evenly'
     >
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-1xl'>
+      <h3 className='absolute top-24 uppercase tracking-[20px] dark:text-[#84FF57] text-[#000000] text-1xl'>
         Experience
       </h3>
 
@@ -32,21 +32,21 @@ function Experience({ experiences }: Props) {
         {experiences?.map(experience => (
           <div
             key={experience._id}
-            className='flex flex-col space-y-4 flex-shrink-0 w-full p-4 sm:p-8 md:p-10'
+            className='flex flex-col flex-shrink-0 w-full p-4 space-y-4 sm:p-8 md:p-10'
           >
-            <div className='space-y-6'>
-              <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
-                <h4 className='text-xl sm:text-2xl font-light text-black dark:text-white'>
+            <div className='p-6 space-y-6 rounded-lg bg-[#ffffff] dark:bg-[#333333] backdrop-blur-sm'>
+              <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+                <h4 className='text-xl font-light text-black sm:text-2xl dark:text-white'>
                   {experience.jobTitle}
                 </h4>
-                <p className='text-gray-500 text-sm sm:text-base'>{experience.dateStarted} — {experience.isCurrentlyWorkingHere ? 'PRESENT' : experience.dateEnded}</p>
+                <p className='text-sm text-black dark:text-white sm:text-base'>{experience.dateStarted} — {experience.isCurrentlyWorkingHere ? 'PRESENT' : experience.dateEnded}</p>
               </div>
 
-              <h3 className='text-lg sm:text-xl font-semibold text-[#2E7D32] dark:text-[#84FF57]/80'>
+              <h3 className='text-lg sm:text-xl font-semibold text-[#759a67] dark:text-[#84FF57]/80'>
                 {experience.company} <span className='inline-block'>↗</span>
               </h3>
 
-              <p className='text-gray-400 text-base sm:text-lg max-w-3xl'>
+              <p className='max-w-3xl text-base text-black dark:text-white sm:text-lg'>
                 {experience.summary}
               </p>
 
@@ -56,7 +56,7 @@ function Experience({ experiences }: Props) {
                   <span
                     key={technology._id}
                     className='px-3 py-1 text-sm rounded-full 
-                      bg-[#2E7D32]/10 text-[#2E7D32] 
+                      bg-[#759a67]/10 text-[#759a67] 
                       dark:bg-[#84FF57]/10 dark:text-[#84FF57]'
                   >
                     {technology.title}

@@ -43,3 +43,5 @@ next-env.d.ts
 *.map
 *.node
 next-swc.*
+
+verify-3d-setup.sh

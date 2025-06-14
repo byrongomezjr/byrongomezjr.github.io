@@ -47,10 +47,10 @@ function Skill({ skill, directionLeft }: Props) {
       />
       <div className='absolute z-0 w-20 h-20 transition duration-300 ease-in-out rounded-full opacity-0 
         group-hover:opacity-75 
-        group-hover:bg-[#2E7D32] dark:group-hover:bg-[#84FF57]/80 
+        group-hover:bg-[#759a67] dark:group-hover:bg-[#84FF57]/80 
         md:w-28 md:h-28 xl:w-32 xl:h-32'>
         <div className='flex items-center justify-center h-full'>
-            <p className='text-2xl font-bold text-white dark:text-black opacity-100'>
+            <p className='text-2xl font-bold text-white opacity-100 dark:text-black'>
               {skill.title}
           </p>
         </div>
